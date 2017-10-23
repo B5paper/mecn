@@ -83,6 +83,8 @@ $$\psi_2(x) = A_1u_k(x)e^{ik'x}e^{-k''x}\ (x\geqslant 0)$$
 
 之所以提出MIS结构，又假设MIS结构是理想的，就是为了研究金属与半导体接触时，外加电压的影响。这样由研究外加电压得到的结论可以扩展到由功函数不同产生的电压，由吸附离子而产生的电压上等。
 
+### 空间电荷层及表面势
+
 MIS结构的本质是一个电容，加上电压后，产生的电场被分割成三份，一份落在金属表面极薄的一层内（可以看作一个原子的厚度），一份落在绝缘层上，还有一份落在半导体表面附近比较厚的一层内。如下图所示：
 
 [图1]
@@ -90,3 +92,58 @@ MIS结构的本质是一个电容，加上电压后，产生的电场被分割�
 至于金属和绝缘层内的电场我们不是很关心，我们比较关心的是半导体内的电场是如何影响载流子的。半导体表面附近的电场所在区域称作**空间电荷区**，表面与体内的电势差称为**表面势$V_s$**，规定电场方向由外向里为正方向。
 
 对于p型半导体，$V_s\lt0$时，表面处空穴堆积；$V_s>0$时，表面处空穴浓度降低很多，称作耗尽；$V_s \gg 0$时，表面处电子浓度超过空穴浓度，形成反型层。这个结论可以这样记：$V_s \lt 0$时，想象电场线方向从内指向表面，又因为是p型半导体，所以空穴朝表面运动，出现堆积。而$V_s \gt 0$时，电场线由表面指向体内，表面处的空穴朝半导体体内运动，表面呈耗尽状态。当$V_s \gg 0$时，表面处的空穴几乎都到体内，因此表面处电子开始占多数，形成反型层。（这只是个形象的解释，真正的解释还是需要用书上的能带理论）。
+
+### 表面空间电荷层的电场、电势和电容
+
+通过解泊松方程，我们可以得到空间电荷层中电场强度随位置$x$的表达式：
+
+$$\mathcal{E}_s = \pm \frac{\sqrt 2 k_0T}{qL_D}F\left( \frac{qV}{k_0T}, \frac {n_{p0}} {p_{p0}} \right)$$，其中$$L_D = \left( \frac{\varepsilon_{rs}\varepsilon_0 k_0 T}{q^2 p_{p0}} \right)^{1/2}$$，称为**德拜长度**，$$F\left( \frac{qV}{k_0T}, \frac {n_{p0}} {p_{p0}} \right) = \left\{ \left[ \exp \left( -\frac{qV}{k_0T}  \right) + \frac{qV}{k_0T} - 1\right] + \frac{n_{p0}}{p_{p0}} \left[ \exp \left( \frac{qV}{k_0T} \right) - \frac{qV}{k_0T} -1 \right] \right\}^{1/2}$$，称为**F函数**。当$V \gt 0$时取$+$，当$V \lt 0$时取$-$。
+
+进一步地，我们可以得到，在表面处，$V = V_s$，有以下三个结论：
+
+1.  $$\mathcal{E}_s = \pm \frac{\sqrt 2 k_0 T}{q L_D} F \left( \frac {qV_s} {k_0 T}, \frac {n_{p0}} {p_{p0}} \right)$$
+2.  电量$$Q_s = \mp \frac {\sqrt 2 \varepsilon_{rs} \varepsilon_0 k_0 T} {qL_D} F \left ( \frac {qV_s} {k_0 T}, \frac {n_{p0}} {p_{p0}} \right)$$
+3.  单位面积上电容$$C_s = \frac {\varepsilon_{rs} \varepsilon_0} {\sqrt 2 L_D} \frac {\left [ -\exp \left(- \frac{qV_s}{k_0T}\right) +1\right] + \frac{n_{p0}}{p_{p0}} \left[ \exp\left(\frac{qV_s}{k_0T} \right) -1 \right]} {F \left ( \frac {qV_s} {k_0 T}, \frac {n_{p0}} {p_{p0}} \right)}$$，单位为$F/m^2$。
+
+设对金属的外加电压为$V_G$，以下几种情况均对p型半导体进行讨论：
+
+**1. 多数载流子堆积状态**
+
+当$V_G \lt 0$时，空穴在表面处堆积，对一般性的结果进行近似，可以得到以下结论：
+
+1.  $$\mathcal{E}_s = -\frac{\sqrt 2 k_0 T}{qL_D} \exp (-\frac{qV_s}{2k_0T})$$
+2.  $$Q_s = \frac{\sqrt 2 \varepsilon_{}rs \varepsilon_0 k_0 T}{qL_D} \exp (- \frac{qV_s}{2k_0 T})$$
+3.  $$C_s = \frac{\varepsilon_{rs}\varepsilon_0}{\sqrt 2 L_D} \exp (- \frac {qV_s}{2k_0T})$$
+
+以上三个式子说明了各个函数随表面势$V_s$变化的关系。这时表面电荷$Q_s$随表面势$|V_s|$的增大而按指数增长。如下图所示：
+
+[图片1  参考图8－6 自己绘制]
+
+**2. 平带状态**
+
+当$V_G = 0$时，表面势$V_s = 0$，表面处能带不发生弯曲，称作*平带状态*。经分析，得到
+
+$$C_{FBS} = \frac {\varepsilon_{rs} \epsilon_0}{L_D}$$
+
+**3. 耗尽状态**
+
+当$V_G \gt 0$，且表面处禁带中央能量$E_i \gt E_F$时，空间电荷区称作*耗尽状态*。此时有
+
+$$Q_s = -\frac{\sqrt 2 \epsilon_{rs} \epsilon_0}{L_D} \left( \frac{k_0T}{q} \right)^{1/2} (V_s)^{1/2}$$
+
+$$C_s = \left( \frac{N_A q \varepsilon_{rs} \varepsilon_0}{2 V_s} \right)^{1/2}$$
+
+若用耗尽层近似[^1]来处理耗尽状态时，有$$C_s = \frac{\varepsilon_{rs} \varepsilon_0}{x_d}$$，$$Q_s = -qN_A x_d$$ 。
+
+[^1]: 假设空间电荷区的空穴都已全部耗尽，电荷全由已电离的受主杂质构成。
+
+**4. 反型状态反型**\
+
+
+
+**5. 深耗尽状态**
+
+
+
+## MIS结构的C-V特性
+
