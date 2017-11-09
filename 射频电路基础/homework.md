@@ -1,3 +1,73 @@
+# 第二章
+
+## 2.1
+
+这道题假设我们已经知道了收音机的负载回路是这样的：
+
+![2_2_1](pictures/homework/2_2_1.png)
+
+ 第一问考查了两个公式：
+
+$$W_{0.7} = \frac {f_0}{Q_L}$$
+
+$$\omega_0 = \frac 1 {\sqrt {L C}}$$
+
+其实在书上19页例2-1对第二个公式做了优化：
+
+当$f_0$以MHz为单位，C以pF为单位，L以μH单位时，并联谐振回路中电感的计算公式为$$L = \frac{25330}{f_0^2\cdot C}$$ 。
+
+这样一来，我们可以直接将题目中的数据代入式子，求得电感。
+
+第二问其实考查了这两个公式：
+
+在并联谐振回路中，$$Q_0 = \omega_0 C R$$，$$Q_L = \omega_0 C R_总$$。其中$R$指的是回路原本就带有的等效电阻，而$R_总$指的是回路总的并联电阻，即$$\frac 1 R_总 = \frac 1 R + \frac 1 R_L$$ 。
+
+由$Q_0$，可以推出$R$；由$Q_L$，可以推出$R_总$。再由并联关系，就可以得到$R_L$的值了，即第二问的答案。
+
+于是这道题的解题过程如下：
+
+$$B_{0.7} = \frac {f_0}{Q_L} \Rightarrow Q_L = \frac {f_0}{B_0.7} = 58.125$$
+
+$$L = \frac {25330}{f_0^2 C} = 585.73 \ \mu H$$
+
+$$Q_L = \omega_0 C R_总 \Rightarrow R_总 = 99.47 \ k\Omega$$
+
+$$Q_0 = \omega C R \Rightarrow R = 120.55 \ k\Omega$$
+
+$$\frac 1 {R_总} = \frac 1 R + \frac 1 {R_L} \Rightarrow R_L = 238.67 \ k\Omega$$
+
+## 2.3
+
+这道题的图中并没有画出并联谐振回路中的电阻$R$，但是不能认为没有。因此，实际的电路图应该是这样的：
+
+![2_3_1](pictures/homework/2_3_1.png)
+
+设$C$为并联谐振回路的总电容，则有
+
+$$\frac 1 C = \frac 1 {C_1} + \frac 1 {C_2} \Rightarrow C = 80 \ pF$$
+
+$$L = \frac {25330}{f_0^2 C} \Rightarrow L = 316.625 \ uH$$
+
+设$R$为回路原有的电阻，有
+
+$$Q_0 = \omega_0 C R \Rightarrow R = 198.94 \ k\Omega$$
+
+设$R_L'$为$R_l$经折算后的电阻，有
+
+$$p = \frac {C_1}{C_1 + C_2} \Rightarrow p = 0.8$$
+
+电阻的折算方法是除以p^2，所以$$R_L' = \frac {R_L}{p^2} \Rightarrow R_L' = 3.125 \ k\Omega$$
+
+$$\frac 1 {R_并} = \frac 1 R + \frac 1 {R_L'} \Rightarrow R_并 = 3.08 \ k\Omega$$
+
+$$Q_L = \omega_0 R_并 C \Rightarrow Q_L = 1.55$$
+
+虽然算出来$Q_L$为1.55，但是实际上$Q_L$不可能这么低。事实上，题中$C_1$和$C_2$的值写反了。更正后，算得$Q_L = 20.09$。
+
+# 第三章
+
+
+
 #第五章
 
 ##5.4
@@ -60,9 +130,9 @@ $$g_m(t) = \frac {di_D} {du_{GS}} = - \frac {2I_{DSS}} {V_p} (1 - \frac {u_{GS}}
 
 当$u_2 = U_2 \cos \omega_2 t$，$E_{GS} = V_p / 2$时，$$g_m(t) = \frac 1 2 g_{m0} - g_{m0} \frac {U_2}{V_p} \cos \omega_2 t$$
 
-由此可知，$$g_{m1} = g_{m0} \frac {U_2}{|V_p|}$$，静态工作点跨导$$g_{mG} = \frac 1 2 g_{m0}$$
+由此可知，$$g_{m1} = g_{m0} \frac {U_2}{|V_p|}$$，静态工作点跨导$$g_{mQ} = \frac 1 2 g_{m0}$$
 
-当$U_2 = |V_p - E_{GS}|$，$E_{GS} = V_p / 2$时，由上式得$$g_{m1} = \frac 1 2 g_{m0}$$
+当$U_2 = |V_p - E_{GS}|​$，$E_{GS} = V_p / 2​$时，由上式得$$g_{m1} = \frac 1 2 g_{m0}​$$
 
 因此$g_{m1}$为静态工作点跨导。
 

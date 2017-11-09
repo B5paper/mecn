@@ -137,9 +137,21 @@ $$C_s = \left( \frac{N_A q \varepsilon_{rs} \varepsilon_0}{2 V_s} \right)^{1/2}$
 
 [^1]: 假设空间电荷区的空穴都已全部耗尽，电荷全由已电离的受主杂质构成。
 
-**4. 反型状态反型**\
+**4. 反型状态**
 
+随着外加正电压$V_G$增大，当表面处禁带中央能值$E_i$下降到$E_F$以下时，就出现了反型层。当表面处少数载流子浓度$n_s$超过体内多数载流子浓度$p_{p0}$时，即出现强反型。
 
+经推导，强反型的条件为$$V_s \geqslant 2V_B$$，其中$V_B$满足$$qV_B = E_i - E_F$$。
+
+强反型条件也可写成$$V_s \geqslant \frac {2k_0 T}{q} \ln \left( \frac {N_A}{n_i} \right)$$，因此衬底杂质浓度越高，$V_s$越大，越不易达到强反型（*未来趋势是掺杂浓度变低*）。
+
+表面势$V_s = 2V_B$时，金属板上加的电压称作*开启电压*。
+
+强反型时，$$Q_s = - \frac {\sqrt 2 \varepsilon_{rs} \varepsilon_0 k_0 T}{q L_D} \left( \frac {n_{p0}}{0_{p0}} \right)^{1/2} \exp \left( \frac {qV_s}{2k_0 T} \right)$$，$|Q_s|$随$V_s$按指数规律增大。
+
+一旦出现强反型，表面耗尽层宽度就达到一个极大值$x_{dm}$，不再随外加电压的增加而增加。这是因为反型层中积累电子屏蔽了外电场的作用。$$x_{dm} = \left[ \frac {4 \varepsilon_{rs} \varepsilon_0 k_0 T}{q^2 N_A} \ln \left( \frac {N_A}{n_i} \right) \right]^{1/2}$$
+
+对于一定的材料，掺杂浓度越大，$x_{dm}$越小。对于一定的衬底杂质浓度$N_A$，材料的禁带越宽，$n_i$值越小，$x_{dm}$越大。
 
 **5. 深耗尽状态**
 
